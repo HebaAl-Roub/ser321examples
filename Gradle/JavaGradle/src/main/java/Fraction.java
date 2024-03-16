@@ -38,23 +38,23 @@ public class Fraction {
    }
 
    public static void main (String args[]) {
-      try {
-         // create a new instance
-         // Fraction *frac = [[Fraction alloc] init];
-         Fraction frac = new Fraction();
+      if (args.length == 2) {
+         try {
+            int num = Integer.parseInt(args[0]);
+            int denom = Integer.parseInt(args[1]);
+            
+            Fraction frac = new Fraction();
+            frac.setNumerator(num);
+            frac.setDenominator(denom);
 
-         // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
-
-         // print it
-         System.out.print("The fraction is: ");
-         frac.print();
-         System.out.println("");
-
-      }catch(Exception e) {
-         e.printStackTrace();
+            System.out.print("The fraction is: ");
+            frac.print();
+            System.out.println("");
+         } catch (NumberFormatException e) {
+            System.out.println("Arguments must be integers.");
+         }
+      } else {
+         System.out.println("Exactly 2 arguments should be provided.");
       }
    }
 }
-
